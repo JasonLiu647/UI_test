@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=UnifrakturMaguntia&display=swap');
+
+:root {
+  --background: #1a1207;
+  --foreground: #e8d5ad;
+  --parchment: #f3ead6;
+  --gold: #c9a84c;
+  --gold-light: #e8d28a;
+  --ink: #1a1207;
+  --maroon: #6b1d1d;
+  --sepia: #704214;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--ink);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Lora', Georgia, serif;
+  overflow-x: hidden;
+}
+
+/* Parchment background texture overlay */
+.parchment-bg {
+  background-color: #f3ead6;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(139, 105, 20, 0.06) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.dark-parchment-bg {
+  background-color: #1a1207;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(139, 105, 20, 0.03) 0%, transparent 50%);
+}
+
+/* Gold shimmer text effect */
+.text-shimmer {
+  background: linear-gradient(
+    110deg,
+    #c9a84c 0%,
+    #e8d28a 35%,
+    #c9a84c 50%,
+    #e8d28a 75%,
+    #c9a84c 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Magical border effect */
+.magic-border {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow:
+    inset 0 0 30px rgba(201, 168, 76, 0.05),
+    0 0 15px rgba(201, 168, 76, 0.1);
+  transition: all 0.3s ease;
+}
+
+.magic-border:hover {
+  border-color: rgba(201, 168, 76, 0.6);
+  box-shadow:
+    inset 0 0 30px rgba(201, 168, 76, 0.1),
+    0 0 25px rgba(201, 168, 76, 0.2);
+}
+
+/* Ornamental divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold);
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Article body styling */
+.article-body p {
+  margin-bottom: 1.5em;
+  line-height: 1.8;
+  text-indent: 2em;
+  color: #2c1810;
+}
+
+.article-body p:first-of-type::first-letter {
+  float: left;
+  font-family: 'UnifrakturMaguntia', 'Playfair Display', serif;
+  font-size: 4.5em;
+  line-height: 0.8;
+  padding-right: 0.1em;
+  color: #8b1a1a;
+}
+
+.article-body blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 1em 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+  background: rgba(201, 168, 76, 0.05);
+}
+
+/* Newspaper column layout */
+.newspaper-columns {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+@media (max-width: 768px) {
+  .newspaper-columns {
+    column-count: 1;
+  }
+}
+
+/* Magic particle glow */
+.magic-glow {
+  position: relative;
+}
+
+.magic-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #c9a84c, #8b6914, #c9a84c, #e8d28a);
+  background-size: 300% 300%;
+  animation: shimmer 3s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.magic-glow:hover::after {
+  opacity: 1;
+}
+
+/* Breaking news ticker */
+.ticker-wrap {
+  overflow: hidden;
+  background: linear-gradient(90deg, #6b1d1d, #8b1a1a, #6b1d1d);
+}
+
+/* Fade-in on scroll utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magical image container - "living photo" effect */
+.living-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.living-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(201, 168, 76, 0.1) 50%,
+    transparent 60%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 4s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.living-photo img {
+  transition: transform 8s ease;
+}
+
+.living-photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Vintage stamp effect */
+.stamp {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid currentColor;
+  border-radius: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: rotate(-3deg);
+}
