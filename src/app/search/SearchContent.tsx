@@ -16,10 +16,10 @@ function SearchResults() {
       {/* Header */}
       <header className="text-center mb-10">
         <h1 className="font-display text-3xl md:text-4xl font-bold text-parchment-100 mb-3">
-          🔍 Search the Archives
+          🔍 搜尋議題庫
         </h1>
         <p className="text-parchment-400 font-body mb-6">
-          Explore centuries of magical knowledge and news
+          搜尋所有新聞議題、標籤與多方觀點分析
         </p>
         <div className="max-w-2xl mx-auto">
           <SearchBar initialQuery={query} large />
@@ -29,8 +29,8 @@ function SearchResults() {
       <div className="ornament-divider mb-8">
         <span className="font-display text-xs tracking-[0.3em] uppercase">
           {query
-            ? `${results.length} result${results.length !== 1 ? "s" : ""} for "${query}"`
-            : "Browse All Articles"}
+            ? `搜尋「${query}」找到 ${results.length} 則結果`
+            : "瀏覽所有議題"}
         </span>
       </div>
 
@@ -45,11 +45,10 @@ function SearchResults() {
         <div className="text-center py-16 magic-border rounded-sm bg-magic-ink/50">
           <p className="text-2xl mb-2">🔮</p>
           <p className="font-display text-lg text-parchment-300 mb-2">
-            No articles found for &quot;{query}&quot;
+            找不到「{query}」相關的議題
           </p>
           <p className="text-sm text-parchment-400">
-            Perhaps the information you seek has been placed under a Fidelius
-            Charm. Try different search terms.
+            試試其他關鍵字，或瀏覽分類頁面尋找感興趣的議題。
           </p>
         </div>
       )}
@@ -62,7 +61,7 @@ export default function SearchContent() {
     <Suspense
       fallback={
         <div className="max-w-7xl mx-auto px-4 py-8 text-center">
-          <p className="text-parchment-400 animate-breathe">Searching the archives...</p>
+          <p className="text-parchment-400 animate-breathe">搜尋中...</p>
         </div>
       }
     >

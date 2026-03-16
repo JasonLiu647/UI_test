@@ -37,7 +37,7 @@ export default function CategoryPage({ params }: Props) {
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-parchment-400 mb-6">
         <Link href="/" className="hover:text-magic-gold transition-colors">
-          Home
+          首頁
         </Link>
         <span>/</span>
         <span className="text-parchment-300">

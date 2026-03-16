@@ -33,7 +33,7 @@ export default function SearchBar({
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search enchantments, potions, creatures..."
+        placeholder="搜尋議題、標籤、關鍵字..."
         className={`w-full bg-magic-ink/80 border border-magic-gold/30 text-parchment-200 placeholder:text-parchment-400/50 focus:outline-none focus:border-magic-gold/60 focus:shadow-[0_0_15px_rgba(201,168,76,0.1)] transition-all rounded-sm ${
           large ? "pl-12 pr-4 py-4 text-lg" : "pl-10 pr-4 py-2.5 text-sm"
         }`}
@@ -44,7 +44,7 @@ export default function SearchBar({
           large ? "py-2 text-sm" : "py-1 text-xs"
         }`}
       >
-        Search
+        搜尋
       </button>
     </form>
   );

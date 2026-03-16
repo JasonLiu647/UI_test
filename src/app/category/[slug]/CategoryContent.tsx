@@ -24,7 +24,7 @@ export default function CategoryContent({
           className="text-center mb-8 p-4 magic-border rounded-sm bg-magic-ink/50"
         >
           <p className="text-parchment-400 font-body text-sm">
-            No articles in {categoryName} yet. Here are some from other sections:
+            目前「{categoryName}」尚無文章，以下為其他分類的議題：
           </p>
         </motion.div>
       )}
